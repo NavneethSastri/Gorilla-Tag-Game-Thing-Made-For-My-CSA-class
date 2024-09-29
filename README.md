@@ -11,6 +11,7 @@ Features:
 - Jump dead spot when the left side of the player is off a lege while the right side still being on the platform itself (def a feature)
 - My bad spelling in this document :)
 - Jumping through the upper cornor of a ceiling (def a feature)
+- Easy Level Editor that uses "1" and "0" to determine if you place a square block or air. (Can make levels in the Level.java)
 
 
   Oh btw this was project was based of a scratch project which our group played for hours lol

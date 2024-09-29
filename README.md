@@ -12,6 +12,7 @@ Features:
 - My bad spelling in this document :)
 - Jumping through the upper cornor of a ceiling (def a feature)
 - Easy Level Editor that uses "1" and "0" to determine if you place a square block or air. (Can make levels in the Level.java)
+- Oh also ignore MainMenu, we gave up on it cause we are good programmers! (ill probably try to implement when i have free time)
 
 
   Oh btw this was project was based of a scratch project which our group played for hours lol

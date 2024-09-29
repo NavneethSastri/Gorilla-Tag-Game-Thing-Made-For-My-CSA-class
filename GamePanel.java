@@ -7,6 +7,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.Timer;
 import java.util.ArrayList;
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private Timer timer;
@@ -24,6 +27,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         level = new Level();
 
         players = new ArrayList<>();
+
+        // create a label to display text
+        JLabel l = new JLabel();
+
+        // add text to label
+        l.setText("label text");
         initializePlayers(); // Initialize with initial number of players
 
         timer = new Timer(20, this);
@@ -66,6 +75,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             if (players.size() < maxPlayers) {
                 addNewPlayer();
             }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_F2) {
+            level.nextLevel();
         }
     }
 

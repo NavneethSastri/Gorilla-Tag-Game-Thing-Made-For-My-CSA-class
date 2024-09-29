@@ -9,8 +9,10 @@ public class Player {
     private boolean left, right;
     private boolean jumping, falling;
     private boolean touchingWallLeft, touchingWallRight;
-    private final int defaultSPEED = 8;
-    private int SPEED = 8;
+    private final int defaultSPEED = 10;
+    private int SPEED = 10;
+    private int changeSpeed;
+    private int DEFAULTchangeSpeed = 1;
     private final int JUMP_SPEED = 18;
     private final int GRAVITY = 1;
     private final int WALL_JUMP_SPEED_X = 11; // Speed to move away from the wall when wall jumping
@@ -46,16 +48,21 @@ public class Player {
 
     public void update() {
         checkTagged();
-        
+        if (isTagged){
+            changeSpeed = (int) (DEFAULTchangeSpeed * 2);
+        }
+        else {
+            changeSpeed = DEFAULTchangeSpeed;
+        }
         if (left) {
             if (dx > -SPEED) {
-                dx -= 1;
+                dx -= changeSpeed;
             } else {
                 dx = -SPEED;
             }
         } else if (right) {
             if (dx < SPEED) {
-                dx += 1;
+                dx += changeSpeed;
             } else {
                 dx = SPEED;
             }
@@ -130,7 +137,7 @@ public class Player {
         }
 
         // Check if the player is standing on solid ground
-        if (!falling && !isSolidTile((y + height + 1) / 50, tileX)) {
+        if (!falling && !isSolidTile((y + height + 1) / 50, tileX) || !falling && !isSolidTile((y + height + 1) / 50, tileXMax)) {
             falling = true;
         }
     }
